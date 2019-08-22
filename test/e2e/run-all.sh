@@ -64,3 +64,11 @@ concurrently --kill-others \
   'yarn dapp' \
   'sleep 5 && mocha test/e2e/address-book.spec'
 
+  concurrently --kill-others \
+    --names 'ganache,dapp,e2e' \
+    --prefix '[{time}][{name}]' \
+    --success first \
+    'node test/e2e/mock-3box/server.js' \
+    'yarn ganache:start' \
+    'yarn dapp' \
+    'sleep 5 && mocha test/e2e/threebox.spec'
