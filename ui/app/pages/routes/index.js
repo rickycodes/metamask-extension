@@ -98,27 +98,6 @@ class Routes extends Component {
     })
   }
 
-  componentDidUpdate (prevProps) {
-    const {
-      threeBoxSynced,
-      show3BoxRestoreConfirmModal,
-      getThreeBoxLastUpdated,
-      turnThreeBoxSyncingOn,
-      restoredFromThreeBox,
-    } = this.props
-
-    if (!prevProps.threeBoxSynced && threeBoxSynced && restoredFromThreeBox === null) {
-      getThreeBoxLastUpdated()
-        .then(lastUpdated => {
-          if (lastUpdated) {
-            show3BoxRestoreConfirmModal(lastUpdated)
-          } else {
-            turnThreeBoxSyncingOn(true)
-          }
-        })
-    }
-  }
-
   renderRoutes () {
     const { autoLogoutTimeLimit, setLastActiveTime } = this.props
 
@@ -362,12 +341,6 @@ Routes.propTypes = {
   providerId: PropTypes.string,
   providerRequests: PropTypes.array,
   autoLogoutTimeLimit: PropTypes.number,
-  threeBoxSynced: PropTypes.bool,
-  show3BoxRestoreConfirmModal: PropTypes.func,
-  getThreeBoxLastUpdated: PropTypes.func,
-  turnThreeBoxSyncingOn: PropTypes.func,
-  restoredFromThreeBox: PropTypes.bool,
-
 }
 
 function mapStateToProps (state) {
@@ -400,8 +373,6 @@ function mapStateToProps (state) {
     providerId: getNetworkIdentifier(state),
     autoLogoutTimeLimit,
     providerRequests: metamask.providerRequests,
-    threeBoxSynced: state.metamask.threeBoxSynced,
-    restoredFromThreeBox: state.metamask.restoredFromThreeBox,
   }
 }
 
@@ -412,9 +383,6 @@ function mapDispatchToProps (dispatch) {
     setCurrentCurrencyToUSD: () => dispatch(actions.setCurrentCurrency('usd')),
     setMouseUserState: (isMouseUser) => dispatch(actions.setMouseUserState(isMouseUser)),
     setLastActiveTime: () => dispatch(actions.setLastActiveTime()),
-    show3BoxRestoreConfirmModal: (lastUpdated) => dispatch(actions.showModal({ name: 'THREEBOX_RESTORE_CONFIRM', lastUpdated })),
-    turnThreeBoxSyncingOn: () => dispatch(actions.turnThreeBoxSyncingOn()),
-    getThreeBoxLastUpdated: () => dispatch(actions.getThreeBoxLastUpdated()),
   }
 }
 
