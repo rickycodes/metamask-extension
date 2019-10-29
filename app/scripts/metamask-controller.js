@@ -668,6 +668,7 @@ module.exports = class MetamaskController extends EventEmitter {
    */
   async fetchInfoToSync () {
     // Preferences
+    console.log(this.preferencesController.store.getState())
     const {
       accountTokens,
       currentLocale,
