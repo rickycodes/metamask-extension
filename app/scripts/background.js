@@ -31,6 +31,7 @@ const reportFailedTxToSentry = require('./lib/reportFailedTxToSentry')
 const setupMetamaskMeshMetrics = require('./lib/setupMetamaskMeshMetrics')
 const EdgeEncryptor = require('./edge-encryptor')
 const getFirstPreferredLangCode = require('./lib/get-first-preferred-lang-code')
+const getFirstPreferredCurrency = require('./lib/get-first-preferred-currency')
 const getObjStructure = require('./lib/getObjStructure')
 const setupEnsIpfsResolver = require('./lib/ens-ipfs/setup')
 
@@ -158,6 +159,7 @@ const { submitMeshMetricsEntry } = setupMetamaskMeshMetrics()
 async function initialize () {
   const initState = await loadStateFromPersistence()
   const initLangCode = await getFirstPreferredLangCode()
+  const initCurrency = await getFirstPreferredCurrency()
   await setupController(initState, initLangCode)
   log.debug('MetaMask initialization complete.')
 }

@@ -49,6 +49,7 @@ class PreferencesController {
       participateInMetaMetrics: null,
       firstTimeFlowType: null,
       currentLocale: opts.initLangCode,
+      currentCurrency: opts.initCurrency,
       identities: {},
       lostIdentities: {},
       forgottenPassword: false,
