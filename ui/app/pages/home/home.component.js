@@ -45,7 +45,7 @@ export default class Home extends PureComponent {
     hasPermissionRequests: PropTypes.bool,
   }
 
-  componentWillMount () {
+  UNSAFE_componentWillMount () {
     const {
       history,
       unconfirmedTransactionsCount = 0,
