@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import Tooltip from '../../ui/tooltip'
+import Tooltip from '../../ui/tooltip-v2'
 import SelectedAccount from '../selected-account'
 import AccountDetailsDropdown from '../dropdowns/account-details-dropdown.js'
 

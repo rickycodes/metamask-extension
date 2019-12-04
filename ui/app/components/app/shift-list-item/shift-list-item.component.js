@@ -6,7 +6,7 @@ const { formatDate, addressSummary } = require('../../../helpers/utils/util')
 
 const CopyButton = require('../../ui/copyButton')
 const EthBalance = require('../../ui/eth-balance').default
-const Tooltip = require('../../ui/tooltip')
+import Tooltip from '../../ui/tooltip-v2'
 
 export default class ShiftListItem extends Component {
   static contextTypes = {

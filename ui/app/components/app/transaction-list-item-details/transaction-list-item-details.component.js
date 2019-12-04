@@ -9,7 +9,7 @@ import { FLAT_VARIANT } from '../../ui/sender-to-recipient/sender-to-recipient.c
 import TransactionActivityLog from '../transaction-activity-log'
 import TransactionBreakdown from '../transaction-breakdown'
 import Button from '../../ui/button'
-import Tooltip from '../../ui/tooltip'
+import Tooltip from '../../ui/tooltip-v2'
 
 export default class TransactionListItemDetails extends PureComponent {
   static contextTypes = {
