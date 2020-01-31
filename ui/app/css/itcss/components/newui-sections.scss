@@ -20,7 +20,7 @@ $wallet-view-bg: $alabaster;
 // Main container
 .main-container {
   z-index: $main-container-z-index;
-  font-family: Roboto;
+  font-family: Circular; // do we need this? it's inherited via html, body
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
